@@ -28,10 +28,10 @@ public class DataInitilizr implements ApplicationListener<ContextRefreshedEvent>
 			createUser("Mendes", "Mendes@gmail.com");
 		}
 		
-		User user = userRepository.getOne(3L);
+		User user = userRepository.findByEmail("Mendes@gmail.com");
 		
-		user.setName("Humberto Neto");
-		userRepository.save(user);
+		System.out.println(user.getEmail());
+		
 	}
 	
 	public void createUser(String name, String email) {
