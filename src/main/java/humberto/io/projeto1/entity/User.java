@@ -2,21 +2,17 @@ package humberto.io.projeto1.entity;
 
 import java.util.Set;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import org.hibernate.annotations.ManyToAny;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 
 public class User {
 
 		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
-		private Long id;
+		private String id;
 		private String name;
 		private String email;
 		
@@ -34,10 +30,10 @@ public class User {
 			this.email = email;
 		}
 		
-		public Long getId() {
+		public String getId() {
 			return id;
 		}
-		public void setId(Long id) {
+		public void setId(String id) {
 			this.id = id;
 		}
 		public String getName() {

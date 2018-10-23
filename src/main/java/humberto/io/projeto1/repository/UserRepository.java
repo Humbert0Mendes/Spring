@@ -1,14 +1,15 @@
 package humberto.io.projeto1.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import humberto.io.projeto1.entity.User;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-
-		@Query("select u from User u where u.name like %?1%")
-		User findByNameQualquerCoisa(String name);
+public interface UserRepository extends MongoRepository<User, Long> {
 		
-		User findByEmail(String email);
+		@Query("{ 'email' : ?0 }")
+		User findByEmailQualquerCoisa(String email);
+		
+		User findByNameIgnoreCaseLike(String name);
+		
 	}
